@@ -1,4 +1,4 @@
-#!usr/bin/python
+#!usr/bin/env python
 #-*- coding:utf-8 -*-
 #import package_name
 # __init__.py文件导入"package_name"中的"hello"模块

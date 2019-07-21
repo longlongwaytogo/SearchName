@@ -1,4 +1,4 @@
-#!usr/bin/python
+#!usr/bin/env python
 #-*- coding:utf-8 -*-
 print "this is 3.module.py"
 

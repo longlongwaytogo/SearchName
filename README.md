@@ -35,7 +35,8 @@
      * 名字重名率
 
 # 其他
-
+python学习：
+[廖雪峰python教程](https://www.liaoxuefeng.com/wiki/897692888725344/923056864229984)
 
 # 第三方库
 
@@ -49,6 +50,10 @@ translate chinese hanzi to pinyin by python
 # 拼音转汉字库
 
 ![拼音转汉字， 拼音输入法引擎](https://github.com/letiantian/Pinyin2Hanzi)
+
+  Python 2 Install：
+
+     $ python setup.py install --user
 
 # 汉字拼音库
 ![https://github.com/mozillazg/pinyin-data](https://github.com/mozillazg/pinyin-data)

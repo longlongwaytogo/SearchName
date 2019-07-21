@@ -1,7 +1,14 @@
-#!usr/bin/python
+#!usr/bin/env python
 # coding: utf-8
 
 from enum import Enum, unique
+
+'''
+#file: main.py
+#brief: main entry
+#date: 2017/07/20
+#author: longlongwaytogo
+'''
 
 @unique
 class Weekday(Enum):

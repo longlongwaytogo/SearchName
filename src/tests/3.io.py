@@ -1,4 +1,4 @@
-#!usr/bin/python    
+#!usr/bin/env python    
 #-*- encoding:utf-8 -*-
 print u"文件读写"
 

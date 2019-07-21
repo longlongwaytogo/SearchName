@@ -1,3 +1,3 @@
-#!usr/bin/python
+#!usr/bin/env python
 
 print 'this is a init python '

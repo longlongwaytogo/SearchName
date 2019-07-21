@@ -1,4 +1,4 @@
-#!usr/bin/python
+#!usr/bin/env python
 #-*- coding:utf-8 -*-
 import three_module
 from three_module import name
