@@ -37,9 +37,9 @@ setting["output_file_dir"] = "output/" # 输出数据目录
 
 setting["pinxin"] = 0 # 0: 使用拼音作为数据
 setting["mode"] = InputDataType.PINYIN # 默认使用拼音进行名字生成
-setting["famliy_name"] ="" # 姓氏
-setting["first_name"] ="" # 第一个名字
-setting["second_name"] ="" # 第二个名字
+setting["famliy_name"] =u"李" # 姓氏
+setting["first_name"] =u"" # 第一个名字
+setting["second_name"] =u"" # 第二个名字
 
 
 '''

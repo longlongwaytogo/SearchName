@@ -17,7 +17,9 @@
 print "this is a test!"
 print u"这是一个测试" # 将中文保存为unicode
 s = "这是一个unicode --utf8--gbk转换测试"
+#print "utf-8:",s
 g = s.decode('utf8')
+print g
 u = g.encode('gbk')
 print u
 
