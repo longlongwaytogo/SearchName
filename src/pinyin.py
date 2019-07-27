@@ -26,14 +26,14 @@ def test():
     main()
 
  
-def pinyin_to_hanzi(pinyin,Topk=5):
+def pinyin_to_hanzi(pinyin,Topk=5,Log=True):
     '''
     拼音转化为汉字
     汉字存在多意性，所以这里没有一一对应的关系，只能选出概率最高的topk
     '''
     print(pinyin)
     translator=DefaultDagParams()
-    result=dag(translator,pinyin,path_num=Topk,log=True)
+    result=dag(translator,pinyin,path_num=Topk,log=Log)
     #print(result)
 
     # for item in result:
@@ -71,69 +71,40 @@ def main():
     pinyinFile.close()
     print("read pinyin from pinyin.txt")
 
-
-
-    #for data in pySet:
-    #    print(data)
-
     famliy_name = user_setting.setting['famliy_name']
-    # py1 =["tian"]
-    # rlt = pinyin_to_hanzi(py1)
-    # print(rlt)
 
     if len(famliy_name) == 0:
         famliy_name = u"李"
-
+    pinyin_out = curFilePath +"/outputs/pinyin_out.txt"
+    pyout = open(pinyin_out,'w+')
     count = 0
     for f in pySet:		
-        # if count > 2:
-		# 	print(" this is count:",count)
-		# 	break
         for s in pySet:
-            count +=1
-            print ("s:",count)
-            
+            # count +=1
+            # print ("s:",count)
             first_name = f
             second_name = s
             #final_name =[]
             print("name:",f,s)
             final_name = [f,s]
-            res = pinyin_to_hanzi(final_name)
-            # for r in res :
-            #     #print(r)
-            #     print(famliy_name,''.join([one.decode('utf-8') for one in r]))
+            res = pinyin_to_hanzi(final_name,20,False)
             for r in res:
-                socre=r.score # 得分
+                count +=1
+                score=r.score # 得分
                 words=r.path # 转换结果
                 print(famliy_name,''.join([one.decode('utf-8') for one in words ]))
+                out_name = str(count) + ":" + str(score) + ":" + famliy_name + ''.join([one.decode('utf-8') for one in words ])  + "\n"
+                pyout.writelines(out_name)
                 #print(socre, ''.join([one.decode('utf-8') for one in words]))
-            if count > 3 :
+            if count > 3000 :
                 break
-        else :
+        else : # else 和 for s 平级，当执行完一次for s 则跳到此处
             print ("else")
-            continue
-        break
+            continue # continue导致for f 代码不继续执行，跳到下一循环
+        break # 当for s 执行break时，else不被执行，无法调用continue，这执行到break，跳出for f
 
-            # first_name = f
-            # second_name = s
-            # final_name =[]
-            # print(f,s)
-            # final_name.append(f)
-            # final_name.append(s)
-            # res = pinyin_to_hanzi(final_name)
-            # print(res)
-            #for r in res:
-            #    print(famliy_name + r)
-            #count +=1
-            #print("count:",count)
-            #if count == 3:
-            #    break
-		#else:
-        #    print("a")
-        #else: # else 和 for s 平级，当执行完一次for s 则跳到此处
-        #    continue # continue导致for f 代码不继续执行，跳到下一循环
-        #break # 当for s 执行break时，else不被执行，无法调用continue，这执行到break，跳出for f
+    pyout.close()
 
-
+    print("pinyin output over!")
 if __name__ == "__main__":
     test()
